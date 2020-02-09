@@ -8,9 +8,9 @@ services:
     restart: unless-stopped
     container_name: fpm
     volumes:
-      - ../openspf:/var/www/html
+      - ${APPLICATION_CODE_PATH}:/var/www/html
   nginx:
-    image: nginx:1.17-alpine
+    image: nginx:alpine
     container_name: server
     restart: unless-stopped
     depends_on:
@@ -20,4 +20,4 @@ services:
       - 443:443
     volumes:
       - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
-      - ../openspf:/var/www/html
+      - ${APPLICATION_CODE_PATH}:/var/www/html
