@@ -11,6 +11,5 @@ chmod 775 ${APPLICATION_CODE_PATH}
 chmod g+s ${APPLICATION_CODE_PATH}
 ```
 
-** The GID 2048 is arbitrary, this is the group I chose to run the php-fpm container. See the Dockerfile. (Thanks to Niels Søholm article, go read it if you want to know more about volumes and permissions : https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca)
-**
+*The GID 2048 is arbitrary, this is the group I chose to run the php-fpm container. See the Dockerfile. (Go read Niels Søholm [article](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca))if you want to know more about volumes and permissions*
 
