@@ -2,19 +2,21 @@
 
 This project is a docker-compose boilerplate to help you launch a PHP application fast. This small docker compose stack will launch the latest php-fpm, in combination with the latest nginx, both runnning on alpine.
 
-* Clone the project to use as your webserver.
-* Add a .env file in your project. The `APPLICATION_CODE_PATH` variable should point to your php application code.
-* Since we will be using docker volumes to work with the webserver in conjunction with the application server code, we need to change group ownership to GID 2048 for the application code. Here are the steps in a nutshell. 
+### Launch your server
+
+* Clone the project to us as your web server.
+* Add a .env file in your project. The `SOURCE_FOLDER` variable should point to your php application folder path.
+* Enter `php-docker.local:8080` to reach your website (@see nginx/site.conf)
+
+### Additionnal tips
+* Since we will be using docker volumes, we need to change group ownership for the application code to GID 2048. _The GID 2048 is arbitrary, this is the group I chose to run the php-fpm container. See the Dockerfile. (Go read Niels Søholm [article](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca))if you want to know more about volumes and permissions_
 ```sh
-chown 2018:2048 ${APPLICATION_CODE_PATH}
-chmod 775 ${APPLICATION_CODE_PATH}
-chmod g+s ${APPLICATION_CODE_PATH}
+chown 2018:2048 ${SOURCE_FOLDER}
+chmod 775 ${SOURCE_FOLDER}
+chmod g+s ${SOURCE_FOLDER}
 ```
 
-_The GID 2048 is arbitrary, this is the group I chose to run the php-fpm container. See the Dockerfile. (Go read Niels Søholm [article](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca))if you want to know more about volumes and permissions_
-
-* Enter `php-docker.local:8080` to reach your website (@see nginx/site.conf)
-* Quick tip for running composer from a container; run this in your `APPLICATION_CODE_PATH`
+* To run composer from a container; run this in your `SOURCE_FOLDER`
 ```sh
 docker run --rm -v $(pwd):/app composer install
 ```
