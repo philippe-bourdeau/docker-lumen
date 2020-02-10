@@ -13,3 +13,6 @@ chmod g+s ${APPLICATION_CODE_PATH}
 
 *The GID 2048 is arbitrary, this is the group I chose to run the php-fpm container. See the Dockerfile. (Go read Niels Søholm [article](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca))if you want to know more about volumes and permissions*
 
+*enter `php-docker.local:8080` to reach your website (see nginx/site.conf)
+q
+Enjoy !
