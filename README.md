@@ -6,7 +6,9 @@ This project is a docker-compose boilerplate to help you launch a PHP applicatio
 
 * Clone the project to us as your web server.
 * Add a .env file in your project. The `SOURCE_FOLDER` variable should point to your php application folder path.
-* Enter `php-docker.local:8080` to reach your website (@see nginx/site.conf)
+* Add the following entry to your hosts file `127.0.0.1 php-docker.local`
+* Enter `php-docker.local:8080` to reach your website
+*`php-docker.local` is arbitrary, (@see nginx/site.conf)*
 
 ### Additionnal tips
 * Since we will be using docker volumes, we need to change group ownership for the application code to GID 2048. _The GID 2048 is arbitrary, this is the group I chose to run the php-fpm container. See the Dockerfile. (Go read Niels Søholm [article](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca))if you want to know more about volumes and permissions_
