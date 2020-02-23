@@ -11,7 +11,7 @@ This project is a docker-compose boilerplate to help you launch a PHP applicatio
 *`php-docker.local` is arbitrary, (@see nginx/site.conf)*
 
 ### Additionnal tips
-* Since we will be using docker volumes, we need to change permissions for the application code to match the with the docker container user. _The GID 2048 is arbitrary, this is the group I chose to run the php-fpm container. See the Dockerfile. (Go read Niels Søholm [article](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca))if you want to know more about volumes and permissions_
+* Since we will be using docker volumes, we need to change permissions for the application code to match the with the docker container user. _The GID 2048 is arbitrary, this is the group I chose to run the php-fpm container. See the Dockerfile.  (Go read Niels Søholm [article](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca)) if you want to know more about volumes and permissions_
 ```sh
 sudo chown -R ${MYUSER}:2048 ${SOURCE_FOLDER}
 sudo find ${SOURCE_FOLDER} -type f -exec chmod 664 {} \;
