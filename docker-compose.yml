@@ -22,8 +22,8 @@ services:
       - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
       - ${SOURCE_FOLDER}:/var/www/html
   node:
-    build:
-      context: .
-      dockerfile: ./node/Dockerfile
-    restart: unless_stopped
+    image: node:latest
+    #    build:
+    #      context: .
+    #      dockerfile: ./node/Dockerfile
     container_name: node
