@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
     container_name: fpm
     volumes:
-      - ${SOURCE_FOLDER}:/var/www/html
+      - ${PHP_APPLICATION_FOLDER}:/var/www/html
   nginx:
     image: nginx:alpine
     container_name: server
@@ -20,7 +20,7 @@ services:
       - 443:443
     volumes:
       - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
-      - ${SOURCE_FOLDER}:/var/www/html
+      - ${PHP_APPLICATION_FOLDER}:/var/www/html
   node:
     container_name: node
     build:
