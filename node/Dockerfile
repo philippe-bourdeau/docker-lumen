@@ -1,5 +1,10 @@
-FROM node:latest
+FROM node:alpine
 
-RUN npm install -g @vue/cli
+RUN yarn global add @vue/cli
 
-CMD ["node"]
+WORKDIR /home/node/vue-app
+
+USER node
+
+CMD ["yarn", "serve"]
+

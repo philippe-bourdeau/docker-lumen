@@ -5,7 +5,7 @@ This project is a docker-compose boilerplate to help you launch a PHP applicatio
 ### Launch your server
 
 * Clone the project to us as your web server.
-* Add a .env file in your project. The ${SOURCE_FOLDER} variable should point to your php application folder path.
+* Add a .env file in your project. The `SOURCE_FOLDER` variable should point to your php application folder path.
 * Add the following entry to your hosts file `127.0.0.1 php-docker.local`
 * Enter `php-docker.local:8080` to reach your website
 *`php-docker.local` is arbitrary, (@see nginx/site.conf)*
