@@ -1,7 +1,7 @@
 FROM php:fpm-alpine
 
-RUN addgroup -g 2048 -S docker-www-data; \
-    adduser -u 2048 -D -S -G docker-www-data docker-www-data
+RUN addgroup -g 1000 -S docker-www-data; \
+    adduser -u 1000 -D -S -G docker-www-data docker-www-data
 
 USER docker-www-data
 
