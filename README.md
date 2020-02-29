@@ -28,6 +28,6 @@ cli () {
  docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp composer "$@"
 }
 
-cli composer create-project --prefer-dist laravel/laravel ${PROJECT_NAME}
+cli composer create-project --prefer-dist laravel/laravel ${PHP_APPLICATION_FOLDER}
 sudo chown -R 1000:1000 ${PHP_APPLICATION_FOLDER}
 ```
