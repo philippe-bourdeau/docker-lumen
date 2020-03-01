@@ -4,7 +4,7 @@ This project is a docker-compose boilerplate to help launch your PHP application
 
 ### General information
 * Add a .env file in your project. The `PHP_APPLICATION_FOLDER` variable should point to your application path
-* Add the following entry to your hosts file: `127.0.0.1 php-docker.local` *`php-docker.local` is arbitrary, (@see nginx/site.conf)*
+* Add the following entry to your hosts file: `127.0.0.1 php-docker.local` (*`php-docker.local` is arbitrary, (@see nginx/site.conf)*)
 * Go to `php-docker.local:8080` on your browser
 
 ### File Permissions
