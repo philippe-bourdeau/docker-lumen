@@ -1,6 +1,6 @@
-# Docker-php-fpm
+# Docker web stack
 
-This project is a docker-compose boilerplate to help launch your PHP application in a more efficient manner and reproductible manner
+This project is a docker-compose boilerplate to help launch your PHP/JS application in a more efficient and reproducible manner
 
 ## General information
 * Add a .env file in your project. 
@@ -10,7 +10,7 @@ This project is a docker-compose boilerplate to help launch your PHP application
 * Go to `php-docker.local:8080` on your browser
 
 ## File permissions
-In order to make things easier, docker container USER has the EUID 1000 that should match on your local machine.
+In order to make things easier, docker container USER has the `EUID` 1000 that should match on your local machine.
 
 ## Use the stack
 Php-cli and node containers are available for enabling you to run your code and manage your project without having to install anything on your machine beyond git and docker.
