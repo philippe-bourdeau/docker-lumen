@@ -9,6 +9,13 @@ services:
     container_name: fpm
     volumes:
       - ${PHP_APPLICATION_FOLDER}:/var/www/html
+  php-cli:
+    container_name: php-cli
+    build:
+      context: ./php-cli
+      dockerfile: Dockerfile-7.4
+    volumes:
+      - ${PHP_APPLICATION_FOLDER}:/var/www/html
   nginx:
     image: nginx:alpine
     container_name: server
