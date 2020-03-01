@@ -13,6 +13,7 @@ This project is a docker-compose boilerplate to help launch your PHP application
  2. We need to make sure that the container does not run as root and that the code have restricted permissions
  3. Go read Niels Søholm [article](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca)) if you want to know more about volumes and permissions
 
+### Use of php-cli container
 Here is an example of what I do for a laravel project; this will create the project and transfer the ownership to user 1000 (should be your current user)
 Use the php-cli container in order to manage your project (composer and artisan commands)
 
