@@ -6,5 +6,3 @@ WORKDIR /home/node/vue-app
 
 USER node
 
-CMD ["yarn", "serve"]
-

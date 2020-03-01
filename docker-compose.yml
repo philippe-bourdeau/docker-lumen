@@ -33,14 +33,10 @@ services:
     build:
       context: ./node
       dockerfile: Dockerfile
-      args:
-        - LOCATION=/home/node/vue-app
     ports:
       - "8081:8080"
       - "8000:8000"
     tty: true
     stdin_open: true
     volumes:
-      - ../vue-app:/home/node/vue-app
-    environment:
-      - NODE_ENV=development
+      - ${JS_APPLICATION_FOLDER}:/home/node/vue-app
