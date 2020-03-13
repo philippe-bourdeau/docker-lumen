@@ -3,8 +3,8 @@ version: '3.3'
 services:
   php-fpm:
     build:
-      context: .
-      dockerfile: ./php-fpm/Dockerfile
+      context: ./php-fpm
+      dockerfile: Dockerfile
     restart: unless-stopped
     container_name: php-fpm
     volumes:

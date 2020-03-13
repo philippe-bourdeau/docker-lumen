@@ -9,7 +9,10 @@ RUN apk add --no-cache --update --virtual buildDeps \
     zlib-dev
 RUN pecl install redis
 RUN docker-php-ext-enable redis
-RUN echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
+COPY redis.ini /usr/local/etc/php/conf.d/redis.ini
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 RUN apk del buildDeps
 
 RUN addgroup -g 1000 -S docker-www-data; \
