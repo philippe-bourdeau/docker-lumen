@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./php-fpm/Dockerfile
     restart: unless-stopped
-    container_name: fpm
+    container_name: php-fpm
     volumes:
       - ${PHP_APPLICATION_FOLDER}:/var/www/html
   php-cli:
@@ -18,7 +18,7 @@ services:
       - ${PHP_APPLICATION_FOLDER}:/var/www/html
   nginx:
     image: nginx:alpine
-    container_name: server
+    container_name: nginx
     restart: unless-stopped
     depends_on:
       - php-fpm
@@ -28,6 +28,12 @@ services:
     volumes:
       - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
       - ${PHP_APPLICATION_FOLDER}:/var/www/html
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    volumes:
+      - /data
   node:
     container_name: node
     build:
