@@ -9,6 +9,9 @@ services:
     container_name: php-fpm
     volumes:
       - ${PHP_APPLICATION_FOLDER}:/var/www/html
+    networks:
+      dcf_network:
+        ipv4_address: 172.16.238.10
   php-cli:
     container_name: php-cli
     build:
@@ -16,6 +19,9 @@ services:
       dockerfile: Dockerfile-7.4
     volumes:
       - ${PHP_APPLICATION_FOLDER}:/var/www/html
+    networks:
+      dcf_network:
+        ipv4_address: 172.16.238.11
   nginx:
     image: nginx:alpine
     container_name: nginx
@@ -28,12 +34,18 @@ services:
     volumes:
       - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
       - ${PHP_APPLICATION_FOLDER}:/var/www/html
+    networks:
+      dcf_network:
+        ipv4_address: 172.16.238.12
   redis:
     image: redis:alpine
     container_name: redis
     restart: unless-stopped
     volumes:
       - /data
+    networks:
+      dcf_network:
+        ipv4_address: 172.16.238.13
   node:
     container_name: node
     build:
@@ -46,3 +58,13 @@ services:
     stdin_open: true
     volumes:
       - ${JS_APPLICATION_FOLDER}:/home/node/vue-app
+    networks:
+      dcf_network:
+        ipv4_address: 172.16.238.14
+networks:
+  dcf_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
