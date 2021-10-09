@@ -12,14 +12,4 @@ In order to make things easier, docker container USER has the `EUID` 1000 that s
 * Install git
 * Install docker
 * Install docker-compose
-* Use the following functions to interact with the code base via cli containers (composer install, phpunit, npm install, etc.)
-
-```sh
-php-sh(){
- docker exec -it php-cli sh
-}
-
-node-sh(){
- docker exec -it node-cli sh
-}
-```
+* Check out bin/tools.sh for quick shorthands
