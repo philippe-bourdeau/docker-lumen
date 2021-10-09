@@ -2,25 +2,23 @@ version: '3.8'
 
 services:
   php-fpm:
+    container_name: php-fpm
     build:
-      context: ./php-fpm
-      dockerfile: Dockerfile
+      context: php-fpm
       args:
         XDEBUG_ON: 1
     restart: unless-stopped
-    container_name: php-fpm
     volumes:
       - .:/var/www/html
   php-cli:
     container_name: php-cli
     build:
-      context: ./php-cli
-      dockerfile: php-cli/Dockerfile
+      context: php-cli
     volumes:
       - .:/var/www/html
   nginx:
-    image: nginx:alpine
     container_name: nginx
+    image: nginx:alpine
     restart: unless-stopped
     depends_on:
       - php-fpm
@@ -28,11 +26,11 @@ services:
       - '80'
       - '443'
     volumes:
-      - ./nginx/dev.fpm.conf:/etc/nginx/conf.d/site.conf
+      - ./nginx/dev.fpm.conf:/etc/nginx/nginx.conf
       - .:/var/www/html
   redis:
-    image: redis:alpine
     container_name: redis
+    image: redis:alpine
     restart: unless-stopped
     volumes:
       - 'redis:/data'
@@ -55,4 +53,3 @@ services:
     container_name: node-cli
     build:
       context: node-cli
-      dockerfile: Dockerfile
