@@ -25,10 +25,10 @@ services:
     depends_on:
       - php-fpm
     ports:
-      - 8080:80
-      - 443:443
+      - "80"
+      - "443"
     volumes:
-      - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
+      - ./nginx/dev.fpm.conf:/etc/nginx/conf.d/site.conf
       - .:/var/www/html
   redis:
     image: redis:alpine

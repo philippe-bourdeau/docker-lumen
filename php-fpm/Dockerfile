@@ -25,5 +25,5 @@ RUN addgroup -g 1000 -S docker-www-data; \
     adduser -u 1000 -D -S -G docker-www-data docker-www-data
 USER docker-www-data
 
-EXPOSE 9003
+EXPOSE 9000
 CMD ["php-fpm"]
