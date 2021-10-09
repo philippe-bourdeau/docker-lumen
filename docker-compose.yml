@@ -25,8 +25,8 @@ services:
     depends_on:
       - php-fpm
     ports:
-      - "80"
-      - "443"
+      - '80'
+      - '443'
     volumes:
       - ./nginx/dev.fpm.conf:/etc/nginx/conf.d/site.conf
       - .:/var/www/html
@@ -35,7 +35,22 @@ services:
     container_name: redis
     restart: unless-stopped
     volumes:
-      - /data
+      - 'redis:/data'
+  mysql:
+    image: 'mysql:8.0'
+    ports:
+      - '3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: '${DB_DATABASE}'
+      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+    volumes:
+      - 'mysql:/var/lib/mysql'
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}" ]
+      retries: 3
+      timeout: 5s
   node-cli:
     container_name: node-cli
     build:
