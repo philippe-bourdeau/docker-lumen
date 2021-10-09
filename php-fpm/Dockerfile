@@ -6,7 +6,7 @@ RUN apk add --no-cache --update --virtual buildDeps \
     gcc \
     make \
     g++ \
-    zlib-dev \
+    zlib-dev
 
 RUN pecl install redis
 RUN docker-php-ext-enable redis

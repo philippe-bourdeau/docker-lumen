@@ -25,3 +25,9 @@ node-sh(){
  docker exec -it node-cli sh "$@"
 }
 
+laravel-new () {
+  curl -s https://laravel.build/"$@" | bash
+}
+
+
+
