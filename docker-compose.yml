@@ -23,8 +23,8 @@ services:
     depends_on:
       - php-fpm
     ports:
-      - '80'
-      - '443'
+      - '8080:80'
+      - '4443:443'
     volumes:
       - ./nginx/dev.fpm.conf:/etc/nginx/nginx.conf
       - .:/var/www/html
@@ -37,7 +37,7 @@ services:
   mysql:
     image: 'mysql:8.0'
     ports:
-      - '3306'
+      - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
       MYSQL_DATABASE: '${DB_DATABASE}'
